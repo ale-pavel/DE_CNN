@@ -64,14 +64,14 @@ def pre_process(path,y_n):
 	return data_3D,arousal_labels,valence_labels
 
 if __name__ == '__main__':
-	dataset_dir = "/home/yyl/DE_CNN/1D_dataset/"
+	dataset_dir = "./1D_dataset/"
 	use_baseline = sys.argv[1]
 	if use_baseline=="yes":
-		result_dir = "/home/yyl/DE_CNN/3D_dataset/with_base/"
+		result_dir = "./3D_dataset/with_base/"
 		if os.path.isdir(result_dir)==False:
 			os.makedirs(result_dir)
 	else:
-		result_dir = "/home/yyl/DE_CNN/3D_dataset/without_base/"
+		result_dir = "./3D_dataset/without_base/"
 		if os.path.isdir(result_dir)==False:
 			os.makedirs(result_dir)
 	
@@ -81,4 +81,4 @@ if __name__ == '__main__':
 		data,arousal_labels,valence_labels = pre_process(file_path,use_baseline)
 		print("final shape:",data.shape)
 		sio.savemat(result_dir+file,{"data":data,"valence_labels":valence_labels,"arousal_labels":arousal_labels})
-		break
+		#break

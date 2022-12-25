@@ -1,0 +1,10 @@
+get_1D_data.py
+	processing:  s01.mat ......
+	base_DE shape: (40, 128)
+	trial_DE shape: (2400, 128)
+	labels: (2400,)
+
+1D_to_3D.py [yes/no]
+	processing:  DE_s01.mat ......
+	final data shape: (2400, 4, 9, 9)
+	final shape: (2400, 4, 9, 9)

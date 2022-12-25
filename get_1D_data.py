@@ -142,7 +142,7 @@ if __name__ == '__main__':
     dataset_dir = "../../datasets/DEAP/data_preprocessed_matlab/"
 
     result_dir = "./1D_dataset/"
-    if os.path.isdir(result_dir) == False:
+    if not os.path.isdir(result_dir):
         os.makedirs(result_dir)
 
     for file in os.listdir(dataset_dir):
