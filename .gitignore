@@ -1,5 +1,6 @@
 # Ignore everything in this directory
 *.xlsx
 *.mat
+*.npy
 # Except this file
 !.gitignore
