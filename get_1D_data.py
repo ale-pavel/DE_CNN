@@ -87,7 +87,7 @@ def decompose(file):
             DE_beta = np.zeros(shape=[0], dtype=float)
             DE_gamma = np.zeros(shape=[0], dtype=float)
 
-            for index in range(60):
+            for index in range(60):  # windowing of 1s, 7680/128 = 60
                 DE_theta = np.append(DE_theta, compute_DE(theta[index * frequency:(index + 1) * frequency]))
                 DE_alpha = np.append(DE_alpha, compute_DE(alpha[index * frequency:(index + 1) * frequency]))
                 DE_beta = np.append(DE_beta, compute_DE(beta[index * frequency:(index + 1) * frequency]))
@@ -103,7 +103,10 @@ def decompose(file):
         temp_base_DE = np.append(temp_base_DE, temp_base_beta_DE)
         temp_base_DE = np.append(temp_base_DE, temp_base_gamma_DE)
         base_DE = np.vstack([base_DE, temp_base_DE])
-    decomposed_de = decomposed_de.reshape(-1, 32, 4, 60).transpose([0, 3, 2, 1]).reshape(-1, 4, 32).reshape(-1, 128)
+    decomposed_de = decomposed_de.reshape((-1, 32, 4, 60))
+    decomposed_de = decomposed_de.transpose([0, 3, 2, 1])
+    decomposed_de = decomposed_de.reshape(-1, 4, 32)
+    # decomposed_de = decomposed_de.reshape(-1, 128)  # keep the frequency bands and electrodes separate
     print("base_DE shape:", base_DE.shape)
     print("trial_DE shape:", decomposed_de.shape)
     return base_DE, decomposed_de

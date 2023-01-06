@@ -1,3 +1,5 @@
+s01.mat shape (40, 40, 8064)
+
 get_1D_data.py
 	processing:  s01.mat ......
 	base_DE shape: (40, 128)
