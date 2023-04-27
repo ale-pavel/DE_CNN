@@ -173,7 +173,7 @@ def conv2d(x, W, kernel_stride):
 def apply_conv1d(x, filter_width, in_channels, out_channels, kernel_stride, name):
     weight = weight_variable([filter_width, in_channels, out_channels], name)
     bias = bias_variable([out_channels], name)  # each feature map shares the same weight and bias
-    return tf.nn.elu(tf.add(tf.compat.v1.layers.conv1d(x, weight, kernel_stride), bias))
+    return tf.nn.elu(tf.add(tf.layers.conv1d(x, weight, kernel_stride), bias))
 
 
 def apply_conv2d(x, filter_height, filter_width, in_channels, out_channels, kernel_stride, name):

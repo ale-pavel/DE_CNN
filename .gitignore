@@ -4,3 +4,5 @@
 *.npy
 # Except this file
 !.gitignore
+
+result_original/
